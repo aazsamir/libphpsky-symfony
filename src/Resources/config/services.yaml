@@ -1,0 +1,14 @@
+services:
+  Aazsamir\LibphpskySymfony\ATProtoClientFactory:
+    arguments:
+      $cache: "@cache.app"
+
+  Aazsamir\LibphpskySymfony\ATProtoMetaClientFactory:
+    arguments:
+      - '@Aazsamir\Libphpsky\Client\ATProtoClientInterface'
+
+  Aazsamir\Libphpsky\Client\ATProtoClientInterface:
+    factory: ['@Aazsamir\LibphpskySymfony\ATProtoClientFactory', "create"]
+
+  Aazsamir\Libphpsky\Model\Meta\ATProtoMetaClient:
+    factory: ['@Aazsamir\LibphpskySymfony\ATProtoMetaClientFactory', "create"]

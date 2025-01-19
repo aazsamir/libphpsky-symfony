@@ -1,0 +1,21 @@
+{
+    "name": "aazsamir/libphpsky-symfony",
+    "description": "Libphpsky recipe for Symfony",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Aazsamir\\LibphpskySymfony\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "aazsamir",
+            "email": "sutikkukun@gmail.com"
+        }
+    ],
+    "require": {
+        "aazsamir/libphpsky": "^0.2.0",
+        "symfony/framework-bundle": "^7.2"
+    }
+}
