@@ -1,7 +1,10 @@
+parameters:
+  query_cache: true
 services:
   Aazsamir\LibphpskySymfony\ATProtoClientFactory:
     arguments:
       $cache: "@cache.app"
+      $useQueryCache: "%query_cache%"
 
   Aazsamir\LibphpskySymfony\ATProtoMetaClientFactory:
     arguments:
@@ -12,3 +15,9 @@ services:
 
   Aazsamir\Libphpsky\Model\Meta\ATProtoMetaClient:
     factory: ['@Aazsamir\LibphpskySymfony\ATProtoMetaClientFactory', "create"]
+
+  Aazsamir\Libphpsky\Model\:
+        resource: '../../../../libphpsky/src/Model/*'
+        exclude: '../{\ATProtoMetaClient.php}'
+        autowire: true
+        autoconfigure: true

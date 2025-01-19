@@ -15,6 +15,7 @@ class ATProtoClientFactory
 {
     public function __construct(
         private CacheItemPoolInterface $cache,
+        private bool $useQueryCache,
     ) {}
 
     public function create(): ATProtoClientInterface
@@ -29,7 +30,11 @@ class ATProtoClientFactory
                     ),
                 ),
             )
-            ->useQueryCache(false);
+            ->useQueryCache($this->useQueryCache);
+
+        if ($this->useQueryCache) {
+            $builder->cache($this->cache);
+        }
 
         return $builder->build();
     }
