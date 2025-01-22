@@ -32,7 +32,7 @@ class MyController
     public function index()
     {
         // use ATProtoMetaClient
-        dd($this->metaClient->comAtprotoIdentityResolveHandle('bsky.app'));
+        dd($this->metaClient->comAtprotoIdentityResolveHandle()->query('bsky.app'));
         // or plain Libphpsky type
         dd($this->resolveHandle->query('bsky.app'));
     }
